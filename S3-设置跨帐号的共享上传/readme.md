@@ -6,6 +6,7 @@
 ## 如何设置S3 Bucket的策略
 
 * 收集方的Bucket Policy 要设置允许XXX账户的YYY用户至少有Put Object权限。需要的话，还可以允许List Bucket和Get Object权限
+
 `    {
         "Version": "2012-10-17",
         "Id": "Policy1544588154662",
@@ -43,6 +44,7 @@
 `
 
 * 上传方的IAM User Policy 要设置允许上传
+
 `    {
         "Version": "2012-10-17",
         "Statement": [
