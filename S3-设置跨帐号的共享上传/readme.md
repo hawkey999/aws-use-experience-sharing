@@ -49,7 +49,7 @@
 等同于  
 
         "Principal": {"AWS": "arn:aws-cn:iam::<accountNumber>:root"}
-        
+
 root 代表帐号本身，例如：  
 arn:aws:organizations::master-account-id:root/o-organization-id/r-root-id  
 详细参见：IAM 标识符  
@@ -84,7 +84,11 @@ https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/example-bucket-policies.ht
 
 不是的！
 
-上传文件的时候需要带上acl参数，否则跨账号上传的文件，连bucket owner都读不了的。（同一个AWS帐号下的用户上传就没这个问题）。详细参考文档：
+上传文件的时候需要带上acl参数，否则跨账号上传的文件，连bucket owner都读不了的。（同一个AWS帐号下的用户上传就没这个问题）。参考命令：  
+aws s3 cp ./xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
+  
+  
+详细参考文档：
 
 访问控制列表 (ACL)
 https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html#canned-acl
