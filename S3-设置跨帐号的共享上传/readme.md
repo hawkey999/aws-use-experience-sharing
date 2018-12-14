@@ -42,6 +42,14 @@
                 ]  
             }  
 
+如果设置    
+        "Principal": {"AWS": "<accountNumber>"}
+等同于  
+        "Principal": {"AWS": "arn:aws-cn:iam::<accountNumber>:root"}
+root 代表帐号本身，例如：  
+arn:aws:organizations::master-account-id:root/o-organization-id/r-root-id  
+详细参见：IAM 标识符  
+https://docs.aws.amazon.com/zh_cn/IAM/latest/UserGuide/reference_identifiers.html
 
 * 上传方的IAM User Policy 要设置允许上传
 
