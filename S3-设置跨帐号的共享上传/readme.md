@@ -103,11 +103,12 @@ https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html#canned-a
     aws s3 cp s3://yyyyy/xxxxxx ./xxxxxx --recursive
     aws s3 cp ./xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
 
-虽然更简便的方法是在S3上面直接复制覆盖
+更简便的方法是在S3上面直接复制覆盖
 
     aws s3 cp s3://yyyyy/xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
 
-但有出现报错的情况，说metadata无变化，不能copy
+但有出现报错的情况，说metadata无变化，不能copy。  
+可以增加修改一个其他的metadata属性，例如增加加密属性 --sse 就OK了
 
 参考文档：
 
