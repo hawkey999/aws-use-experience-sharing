@@ -69,7 +69,9 @@ https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/example-bucket-policies.ht
 
 不是的！
 
-上传文件的时候需要带上acl参数，否则跨账号上传的文件，连bucket owner都读不了的。（同一个AWS帐号下的用户上传就没这个问题）。详细参考文档：访问控制列表 (ACL)
+上传文件的时候需要带上acl参数，否则跨账号上传的文件，连bucket owner都读不了的。（同一个AWS帐号下的用户上传就没这个问题）。详细参考文档：
+
+访问控制列表 (ACL)
 https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html#canned-acl
 
 为什么要这样设计？
@@ -78,11 +80,14 @@ https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/acl-overview.html#canned-a
 ## 如何上传时忘记加ACL了怎么办？
 
 在一台跟Bucket同一Region的EC2上执行，把文件copy下来，再重新copy上去的时候带上ACL参数
-aws s3 cp s3://yyyyy/xxxxxx ./xxxxxx --recursive
-aws s3 cp ./xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
+
+    aws s3 cp s3://yyyyy/xxxxxx ./xxxxxx --recursive
+    aws s3 cp ./xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
 
 虽然更简便的方法是在S3上面直接复制覆盖
-aws s3 cp s3://yyyyy/xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
+
+    aws s3 cp s3://yyyyy/xxxxxx s3://yyyyy/xxxxxx --recursive --acl bucket-owner-full-control
+
 但有出现报错的情况，说metadata无变化，不能copy
 
 参考文档：
