@@ -1,6 +1,6 @@
 # 设置跨帐号的 AWS S3 上传文件
 
-要让所有AWS IAM User上传文件到S3进行收集，如果这些User都是不同的AWS Account下面的，怎么处理呢？
+要让所有AWS IAM User上传文件到S3进行收集，如果这些User都是不同的AWS Account下面的，怎么处理呢？  
 基本原理是收集者在自己的AWS S3 Bucket设置策略，允许其他用户跨帐号上传文件，但有些地方要注意的
 
 ## 如何设置S3 Bucket的策略
@@ -64,6 +64,7 @@
         ]
     }
 `
+
 存储桶策略示例
 https://docs.aws.amazon.com/zh_cn/AmazonS3/latest/dev/example-bucket-policies.html
 
