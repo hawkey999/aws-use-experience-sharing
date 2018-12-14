@@ -7,62 +7,62 @@
 
 * 收集方的Bucket Policy 要设置允许XXX账户的YYY用户至少有Put Object权限。需要的话，还可以允许List Bucket和Get Object权限
 
-`    {
-        "Version": "2012-10-17",
-        "Id": "Policy1544588154662",
-        "Statement": [
-            {
-                "Sid": "Stmt11111111a",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]
-                },
-                "Action": [
-                    "s3:AbortMultipartUpload",
-                    "s3:GetObject",
-                    "s3:ListMultipartUploadParts",
-                    "s3:PutObject",
-                    "s3:ReplicateObject"
-                ],
-                "Resource": "arn:aws-cn:s3:::<bucketname>/*"
-            },
-            {
-                "Sid": "Stmt11111111b",
-                "Effect": "Allow",
-                "Principal": {
-                    "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]
-                },
-                "Action": [
-                    "s3:GetBucketLocation",
-                    "s3:ListBucket",
-                    "s3:ListBucketMultipartUploads"
-                ],
-                "Resource": "arn:aws-cn:s3:::<bucketname>"
-            }
-        ]
-    }
+`    {  
+        "Version": "2012-10-17",  
+        "Id": "Policy1544588154662",  
+        "Statement": [  
+            {  
+                "Sid": "Stmt11111111a",  
+                "Effect": "Allow",  
+                "Principal": {  
+                    "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
+                },  
+                "Action": [  
+                    "s3:AbortMultipartUpload",  
+                    "s3:GetObject",  
+                    "s3:ListMultipartUploadParts",  
+                    "s3:PutObject",  
+                    "s3:ReplicateObject"  
+                ],  
+                "Resource": "arn:aws-cn:s3:::<bucketname>/*"  
+            },  
+            {  
+                "Sid": "Stmt11111111b",  
+                "Effect": "Allow",  
+                "Principal": {  
+                    "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
+                },  
+                "Action": [  
+                    "s3:GetBucketLocation",  
+                    "s3:ListBucket",  
+                    "s3:ListBucketMultipartUploads"  
+                ],  
+                "Resource": "arn:aws-cn:s3:::<bucketname>"  
+            }  
+        ]  
+    }  
 `
 
 * 上传方的IAM User Policy 要设置允许上传
 
-`    {
-        "Version": "2012-10-17",
-        "Statement": [
-            {
-                "Sid": "VisualEditor0",
-                "Effect": "Allow",
-                "Action": [
-                    "s3:PutObject",
-                    "s3:GetObject",
-                    "s3:ListBucket"
-                ],
-                "Resource": [
-                    "arn:aws-cn:s3:::<bucketname>/*",
-                    "arn:aws-cn:s3:::<bucketname>",
-                ]
-            }
-        ]
-    }
+`    {  
+        "Version": "2012-10-17",  
+        "Statement": [  
+            {  
+                "Sid": "VisualEditor0",  
+                "Effect": "Allow",  
+                "Action": [  
+                    "s3:PutObject",  
+                    "s3:GetObject",  
+                    "s3:ListBucket"  
+                ],  
+                "Resource": [  
+                    "arn:aws-cn:s3:::<bucketname>/*",  
+                    "arn:aws-cn:s3:::<bucketname>",  
+                ]  
+            }  
+        ]  
+    }  
 `
 
 存储桶策略示例
