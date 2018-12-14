@@ -15,7 +15,7 @@
                         "Sid": "Stmt11111111a",  
                         "Effect": "Allow",  
                         "Principal": {  
-                            "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
+                            "AWS": ["arn:aws-cn:iam::<uploader-accountNumber>:user/<username>"]  
                         },  
                         "Action": [  
                             "s3:GetObject",  
@@ -28,7 +28,7 @@
                         "Sid": "Stmt11111111b",  
                         "Effect": "Allow",  
                         "Principal": {  
-                            "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
+                            "AWS": ["arn:aws-cn:iam::<uploader-accountNumber>:user/<username>"]  
                         },  
                         "Action": [   
                             "s3:ListBucket",  
@@ -38,11 +38,18 @@
                     }  
                 ]  
             }  
-
+  
+替换`<uploader-accountNumber>`为上传者的AWS帐号ID  
+替换`<bucketname>`为收集文件的S3 Bucket
+  
 如果设置    
+
         "Principal": {"AWS": "<accountNumber>"}
+
 等同于  
+
         "Principal": {"AWS": "arn:aws-cn:iam::<accountNumber>:root"}
+        
 root 代表帐号本身，例如：  
 arn:aws:organizations::master-account-id:root/o-organization-id/r-root-id  
 详细参见：IAM 标识符  
