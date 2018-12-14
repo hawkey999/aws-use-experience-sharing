@@ -18,11 +18,9 @@
                             "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
                         },  
                         "Action": [  
-                            "s3:AbortMultipartUpload",  
                             "s3:GetObject",  
                             "s3:ListMultipartUploadParts",  
                             "s3:PutObject",  
-                            "s3:ReplicateObject"  
                         ],  
                         "Resource": "arn:aws-cn:s3:::<bucketname>/*"  
                     },  
@@ -32,8 +30,7 @@
                         "Principal": {  
                             "AWS": ["arn:aws-cn:iam::<accountNumber>:user/<username>"]  
                         },  
-                        "Action": [  
-                            "s3:GetBucketLocation",  
+                        "Action": [   
                             "s3:ListBucket",  
                             "s3:ListBucketMultipartUploads"  
                         ],  
