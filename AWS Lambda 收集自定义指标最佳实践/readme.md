@@ -1,5 +1,5 @@
-# AWS Lambda 收集自定义指标(Metrics)最佳实践  
-
+# AWS Lambda 收集自定义指标(Metrics)最佳实践   
+ 
 ## 前言  
 AWS Lambda 是非常受欢迎的无服务器运行代码的云服务。我们知道 AWS Lambda运行所产生的日志(logs)会自动收集到 CloudWatch Logs 中，Lambda 所产生的通用运行指标(metrics) 例如：“调用数”、“持续时间”、“错误”、“并发数”等都会自动收集到 CloudWatch Metrics 中监控。而本文将阐述几种自定义指标的收集方法及其优缺点。
 
