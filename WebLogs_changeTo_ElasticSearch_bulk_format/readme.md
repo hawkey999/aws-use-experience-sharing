@@ -29,19 +29,19 @@ curl -XPOST https://es_endpoint/_bulk --data-binary @dataset.bulk -H 'Content-Ty
 ```
 sourcefile = './dataset.bulk'  # source file
 file_size = 10000*2 # 修改file_size为每个文件包含的记录数值，注意每个记录是包含了两行
-count =0
+count = 0
 filename = 0
 data_str = ''
 with open(sourcefile, 'r') as f:
     for line in f:
         count += 1
-        data_str+=line
+        data_str += line
         if count == file_size:
             with open(sourcefile+str(filename), 'w') as outp:
                 outp.write(data_str)
-            data_str=''
-            count=0
-            filename+=1
+            data_str = ''
+            count = 0
+            filename += 1
     if data_str != '':
         with open(sourcefile+str(filename), 'w') as outp:
             outp.write(data_str)
