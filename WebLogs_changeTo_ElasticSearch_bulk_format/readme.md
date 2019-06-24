@@ -10,7 +10,7 @@ python3 weblog-to-Elasticsearch.py
 ```
 101.111.111.111 - - [12/Dec/2015:18:25:11 +0100] "GET /ad/ HTTP/1.1" 200 4263 "-" "Mozilla/5.0 (Windows NT 6.0; rv:34.0) Gecko/20100101 Firefox/34.0" "-"
 ```
-测试时，可以使用这个公开的数据集：https://s3.cn-north-1.amazonaws.com.cn/emrdata-huangzb/dataset-access/dataset-access.log
+测试时，可以使用一些公开的数据集，例如这个约600MB的：https://s3.cn-north-1.amazonaws.com.cn/emrdata-huangzb/dataset-access/dataset-access.log
 
 转换为 ES 批量导入的格式是：
 ```
