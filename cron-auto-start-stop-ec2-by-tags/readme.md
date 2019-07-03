@@ -45,20 +45,23 @@
   CloudWatch 控制台，新建 Event Rules 。  
 ![create Event rule](./img/1.png)
 
-* 设置定时任务执行时间，Cron表达式的写法可以[参考文档](https://docs.amazonaws.cn/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)。这里实例设置的是每天早上9点启动。  
+* 设置定时任务执行时间，Cron表达式的写法可以[参考文档](https://docs.amazonaws.cn/AmazonCloudWatch/latest/events/ScheduledEvents.html#CronExpressions)。上图例子设置的是每天早上9点启动。  
 * 选择执行的 Lambda，即刚才创建的 Lambda 函数
 * 设置 Lambda 触发的参数。这里用来指定是个启动 EC2 任务，还是停止 EC2 任务。
 ```
 {"cronaction":"start"}
 ```
 4. 再次创建 CloudWatch Event 定时任务停止 EC2 的规则  
-  CloudWatch 控制台，新建 Event Rules 。这里实例设置的是每天晚上21点关闭。  
+  CloudWatch 控制台，新建 Event Rules 。上图例子设置的是每天晚上21点关闭。  
 ![create Event rule](./img/2.png)
 * 选择执行的 Lambda，即刚才创建的 Lambda 函数
 * 设置 Lambda 触发的参数。这里用来指定是停止 EC2 任务。
 ```
 {"cronaction":"stop"}
 ```
-5. 监控 Rule 执行
+5. 为 EC2 服务器增加一个标签  
+以 autostart 作为标签的 Tag Key，至于值 Tag Value 则可以随便设置。即只要 EC2 加一个 Key 为 autostart 的 Tag，不管 Value 设置什么，都会参与到自动启动和关闭的任务中。  
+
+6. 监控 Rule 执行
 在 CloudWatch Event Rule 里面，选择对应的 Rule，点 Monitor (Show metrics for the rule) 就可以看到 Rule 被定时触发的情况  
 ![monitor](./img/3.png)
