@@ -1,0 +1,42 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "StartStopEc2",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:StartInstances",
+                "ec2:StopInstances",
+                "ec2:RebootInstances"
+            ],
+            "Resource": "arn:aws-cn:ec2:*:*:instance/*",
+            "Condition": {
+                "StringEquals": {
+                    "ec2:ResourceTag/Owner": "${aws:username}"
+                }
+            }
+        },
+        {
+            "Sid": "ListEC2andS3",
+            "Effect": "Allow",
+            "Action": [
+                "ec2:DescribeInstances",
+                "s3:ListAllMyBuckets"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AccessS3Bucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:PutObject",
+                "s3:GetObject",
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws-cn:s3:::israel-institute-of-technology-${aws:username}/*",
+                "arn:aws-cn:s3:::israel-institute-of-technology-${aws:username}"
+            ]
+        }
+    ]
+}
