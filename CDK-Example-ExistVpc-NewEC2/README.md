@@ -1,16 +1,22 @@
 
-# Welcome to your CDK Python project!
+# 在现有 VPC 上新建 EC2 (AWS CDK Python)
 
-This is a blank project for Python development with CDK.
+打开 app.py 修改 Account ID 为你的AWS Account ID, 要部署的 Region。这里因为是在现有 VPC 中部署，需要读取 VPC 信息，所以需要手工设置 Account 和 Region。  
+```
+env_cn = core.Environment(account="11111111", region="cn-northwest-1")
+```
+打开 cdk_vpc_ec2_stack.py 修改以下变量：  
+```
+vpc_id = "vpc-111111111"
+ec2_type = "m5.xlarge"
+key_name = "id_rsa"
+linux_ami = ec2.GenericLinuxImage({
+    "cn-northwest-1": "ami-0f62e91915e16cfc2",
+    "eu-west-1": "ami-12345678"
+})
+```
 
-The `cdk.json` file tells the CDK Toolkit how to execute your app.
 
-This project is set up like a standard Python project.  The initialization
-process also creates a virtualenv within this project, stored under the .env
-directory.  To create the virtualenv it assumes that there is a `python3`
-(or `python` for Windows) executable in your path with access to the `venv`
-package. If for any reason the automatic creation of the virtualenv fails,
-you can create the virtualenv manually.
 
 To manually create a virtualenv on MacOS and Linux:
 
@@ -49,6 +55,8 @@ command.
 
 ## Useful commands
 
+ * `cdk init`        Init cdk project
+ * `cdk bootstrap`   Init cdk bootstrap
  * `cdk ls`          list all stacks in the app
  * `cdk synth`       emits the synthesized CloudFormation template
  * `cdk deploy`      deploy this stack to your default AWS account/region
