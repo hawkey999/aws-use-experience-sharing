@@ -22,4 +22,6 @@ ShowEC2Info.js
 说明：如果你需要的EC2类型没有包含进去，可以自行在脚本中补充，记得保存 File->Save。配置后的效果如图
 ![Tampermonkey Config](./img/img02.png)
 
+在此基础上，你还可以增加内容，例如拆开每个region都独立匹配一个脚本，然后把每小时价格添上。
+
 Provided by Michael Zhang, James Huang
