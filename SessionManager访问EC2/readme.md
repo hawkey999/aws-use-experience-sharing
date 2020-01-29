@@ -26,6 +26,8 @@ AmazonSSMManagedInstanceCore
 aws ssm start-session --target "YOUR_EC2_ID"
 ```
 # 权限
-* 限制用户 IAM 权限只能通过 Session Manager 访问该 EC2 ，访问不了其他服务器，或其他服务
+* 限制用户 IAM 权限只能通过 Session Manager 访问该 EC2 ，访问不了其他服务器，或其他服务。参考这个角色配置：  
 user_iam_role.json
 
+# 文档
+https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html
