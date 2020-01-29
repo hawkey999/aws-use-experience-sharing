@@ -22,8 +22,9 @@ AmazonSSMManagedInstanceCore
 
 # 使用
 * 本机输入命令即可连接服务器。替换下面的 ec2 id
+```bash
 aws ssm start-session --target "YOUR_EC2_ID"
-
+```
 # 权限
 * 限制用户 IAM 权限只能通过 Session Manager 访问该 EC2 ，访问不了其他服务器，或其他服务
 user_iam_role.json
