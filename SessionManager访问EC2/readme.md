@@ -1,7 +1,7 @@
 # 使用 Session Manager 代替 SSH 访问 EC2，替代 Bastion 堡垒机
-* 在不使用 SSH 密钥或堡垒主机的情况下连接到您的实例。
-* 使用 AWS Key Management Service 密钥保护会话。
-* 在 Amazon S3 存储桶或 CloudWatch Logs 中记录会话命令和详细信息。
+* 方便登录：不使用 EC2 Key 密钥，不需要通过堡垒机的情况下 SSH 连接到您的 EC2 实例，无论实例是在公有还是私有子网中。即实例不能访问公网也可以通过 VPC endpoint ssmmessage 来实现 SSH 登录。无需 SSH 客户端。
+* 全程审计：在 Amazon S3 存储桶或 CloudWatch Logs 中记录会话命令和详细信息。
+* 安全加密：使用 AWS Key Management Service 密钥保护会话。
 
 # 前置准备
 * 本机安装 aws cli 
@@ -21,7 +21,7 @@ AmazonSSMManagedInstanceCore
 2. 如果 EC2 本身是可以对外访问公网的，例如服务器在私有子网，但有路由经过 NAT Gateway 访问公网，则同样可以通过 Session Manager 访问。
 
 # 使用
-* 本机输入命令即可连接服务器。替换下面的 ec2 id
+* 本机终端输入命令即可登录到服务器。替换下面的 ec2 id:
 ```bash
 aws ssm start-session --target "YOUR_EC2_ID"
 ```
