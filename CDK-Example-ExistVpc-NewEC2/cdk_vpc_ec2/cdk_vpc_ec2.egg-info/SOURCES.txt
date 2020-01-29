@@ -1,7 +1,0 @@
-README.md
-setup.py
-cdk_vpc_ec2/cdk_vpc_ec2.egg-info/PKG-INFO
-cdk_vpc_ec2/cdk_vpc_ec2.egg-info/SOURCES.txt
-cdk_vpc_ec2/cdk_vpc_ec2.egg-info/dependency_links.txt
-cdk_vpc_ec2/cdk_vpc_ec2.egg-info/requires.txt
-cdk_vpc_ec2/cdk_vpc_ec2.egg-info/top_level.txt

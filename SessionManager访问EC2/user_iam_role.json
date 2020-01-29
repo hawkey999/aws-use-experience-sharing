@@ -1,0 +1,40 @@
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:StartSession"
+            ],
+            "Resource": [
+                "arn:aws-cn:ec2:*:*:instance/<<YOUR_INSTANCE_ID>>"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:DescribeSessions",
+                "ssm:GetConnectionStatus",
+                "ssm:DescribeInstanceProperties",
+                "ec2:DescribeInstances"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:GetDocument"
+            ],
+            "Resource": "arn:aws-cn:ssm:*:*:document/SSM-SessionManagerRunShell"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "ssm:TerminateSession"
+            ],
+            "Resource": [
+                "arn:aws-cn:ssm:::session/${aws:username}-*"
+            ]
+        }
+    ]
+}
