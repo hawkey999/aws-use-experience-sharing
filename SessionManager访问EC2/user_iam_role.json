@@ -33,7 +33,7 @@
                 "ssm:TerminateSession"
             ],
             "Resource": [
-                "arn:aws-cn:ssm:::session/${aws:username}-*"
+                "arn:aws-cn:ssm:*:*:session/${aws:username}-*"
             ]
         }
     ]
